@@ -7,9 +7,9 @@ st.title("Procmon")
 
 
 stats = { 
-    "🧭 Load avg": psutil.getloadavg(),
-    "🔋 Battery": 
+    "🧭 Load avg": psutil.getloadavg()
 }
+
 try:
     stats["🔋 Battery"] = psutil.sensors_battery()
 except Exception as e:
