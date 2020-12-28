@@ -5,10 +5,16 @@ import time
 
 st.title("Procmon")
 
+
 stats = { 
     "🧭 Load avg": psutil.getloadavg(),
-    "🔋 Battery": psutil.sensors_battery()
+    "🔋 Battery": 
 }
+try:
+    stats["🔋 Battery"] = psutil.sensors_battery()
+except Exception as e:
+    st.warning("Could not get battery data from psutil")
+    st.exception(e)
 
 for stat_name, stat in stats.items():
     st.header(stat_name)
